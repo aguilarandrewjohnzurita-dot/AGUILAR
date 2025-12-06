@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Website</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+        }
+        header {
+            background: #222;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        nav a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #00d1ff;
+        }
+        .hero {
+            text-align: center;
+            padding: 40px;
+        }
+        .hero img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #222;
+        }
+        section {
+            max-width: 900px;
+            margin: auto;
+            padding: 40px 20px;
+            background: white;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+        h2 {
+            border-left: 5px solid #222;
+            padding-left: 10px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #222;
+            color: white;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Profile</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <div class="hero" id="home">
+        <img src="astro.jpg" alt="Profile Picture" />
+        <h2>Welcome to My Website</h2>
+        <p>This is my personal portfolio website.</p>
+    </div>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I am Andrew John Aguilar, 19 years old, from BSIT-1F. I enjoy drawing, and especially fishing because I am an angler. I also love playing chess.</p>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="projects">
+        <h2>My Projects</h2>
+        <div class="project-list">
+
+            <!-- STORY PROJECT -->
+            <div class="project-card">
+                <img src="book.jpg" alt="Story Project">
+                <h3>Short Story Website</h3>
+                <p>A simple webpage that showcases my creative writing story.</p>
+                <a href="drewwstory.html" class="btn" target="_blank">View Story</a>
+            </div>
+
+            <!-- RECIPE PROJECT -->
+            <div class="project-card">
+                <img src="curry.jpg" alt="Recipe Project">
+                <h3>Recipe Website</h3>
+                <p>A simple chicken curry recipe with ingredients and instructions.</p>
+                <a href="drewcurry.html" class="btn">View Project</a>
+            </div>
+
+            <!-- ORDERED FORM PROJECT -->
+            <div class="project-card">
+                <img src="chooks.jpg" alt="Ordered Form Project">
+                <h3>Ordered Form Website</h3>
+                <p>Website guides users to easily order chooks-to-drew order form online.</p>
+                <a href="Andreworderform.html" class="btn">View Project</a>
+            </div>
+
+        </div>
+    </section>
+ 
+     <!-- CONTACT SECTION -->
+    <section id="contact" class="contact">
+        <h2>Contact Me</h2>
+        <p>If you want to reach out, message me here:</p>
+        <ul>
+            <li>Email: <a href="mailto:aguilarandrewjohnzurita@gmail.com">aguilarandrewjohnzurita@gmail.com</a></li>
+            <li>Facebook: <a href="https://facebook.com/" target="_blank">Andrew John Zurita Aguilar</a></li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Andrew John Z. Aguilar</p>
+    </footer>
+</body>
+</html>

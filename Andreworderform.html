@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chooks-to-Drew Order Form</title>
+    <style>
+        body {
+           font-family: Arial, sans-serif;
+            background-image: url('chooks.png'); /* ← change to your image filename */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+
+            color: #333;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 248, 220, 0.9);
+            padding: 25px;
+            max-width: 600px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #d32f2f;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .readonly {
+            background: #ffffff;
+        }
+
+        button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 12px;
+            background: #d32f2f;
+            color: white;
+            border: none;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #b71c1c;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .product-box {
+            border: 2px solid #ccc;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .product-box h3 {
+            margin: 0;
+            text-align: center;
+        }
+
+        .price {
+            text-align: center;
+            color: #d32f2f;
+            font-weight: bold;
+        }
+
+        .receipt {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 350px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+
+        .receipt h2 {
+            text-align: center;
+            color: #d32f2f;
+        }
+
+        .receipt table {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .receipt table td {
+            padding: 5px;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 999;
+        }
+
+        .close-btn {
+            background: #ff0000;
+            color: white;
+            padding: 8px;
+            width: 100%;
+            text-align: center;
+            margin-top: 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Chooks-to-Drew Order Form</h1>
+
+    <form id="orderForm">
+
+        <label>Full Name:</label>
+        <input type="text" id="fullname" required>
+
+        <label>Contact Number:</label>
+        <input type="text" id="contact" required>
+
+        <label>Delivery Address:</label>
+        <textarea id="address" rows="3" required></textarea>
+
+        <label>Preferred Delivery Date:</label>
+        <input type="date" id="date" required>
+
+        <label>Preferred Delivery Time:</label>
+        <input type="time" id="time" required>
+
+        <label>Select Products & Quantity:</label>
+
+        <div class="products">
+
+            <div class="product-box">
+                <h3>Roasted Chicken</h3>
+                <p class="price">₱285</p>
+                <label>Qty:</label>
+                <input type="number" class="qty" data-name="Roasted Chicken" data-price="285" min="0" value="0">
+            </div>
+
+            <div class="product-box">
+                <h3>Hot & Spicy Chicken</h3>
+                <p class="price">₱300</p>
+                <label>Qty:</label>
+                <input type="number" class="qty" data-name="Hot & Spicy Chicken" data-price="300" min="0" value="0">
+            </div>
+
+            <div class="product-box">
+                <h3>Lechon Manok</h3>
+                <p class="price">₱310</p>
+                <label>Qty:</label>
+                <input type="number" class="qty" data-name="Lechon Manok" data-price="310" min="0" value="0">
+            </div>
+
+            <div class="product-box">
+                <h3>Paa / Wings</h3>
+                <p class="price">₱120</p>
+                <label>Qty:</label>
+                <input type="number" class="qty" data-name="Paa / Wings" data-price="120" min="0" value="0">
+            </div>
+
+            <div class="product-box">
+                <h3>Chicken Adobo</h3>
+                <p class="price">₱100</p>
+                <label>Qty:</label>
+                <input type="number" class="qty" data-name="Chicken Adobo" data-price="100" min="0" value="0">
+            </div>
+			
+			 <div class="product-box">
+                <h3>Golden Chicken</h3>
+                <p class="price">₱499</p>
+                <label>Qty:</label>
+                <input type="number" class="qty" data-name="Golden Chicken" data-price="499" min="0" value="0">
+            </div>
+			
+			<div class="product-box">
+                <h3>Ice cream Cola</h3>
+                <p class="price">₱39</p>
+                <label>Qty:</label>
+                <input type="number" class="qty" data-name="Ice cream Cola" data-price="39" min="0" value="0">
+            </div>
+			
+			<div class="product-box">
+                <h3>Ice Coffee</h3>
+                <p class="price">₱39</p>
+                <label>Qty:</label>
+                <input type="number" class="qty" data-name="Ice Coffee" data-price="39" min="0" value="0">
+            </div>
+			
+			<div class="product-box">
+                <h3>Royal</h3>
+                <p class="price">₱12</p>
+                <label>Qty:</label>
+                <input type="number" class="qty" data-name="Royal" data-price="12" min="0" value="0">
+            </div>
+
+            <div class="product-box">
+                <h3>Coke</h3>
+                <p class="price">₱12</p>
+                <label>Qty:</label>
+                <input type="number" class="qty" data-name="Coke" data-price="12" min="0" value="0">
+            </div>
+
+        </div>
+		
+		 <label>Free Soup:</label>
+        <select id="payment" required>
+            <option value="">-- Select Free Soup --</option>
+            <option value="Tinola">Tinola</option>
+			<option value="Sinigang">Sinigang</option>
+			<option value="Bulalo">Bulalo</option>
+		</select>
+
+        <label>Total Price (₱):</label>
+        <input type="text" id="total" class="readonly" readonly>
+
+        <label>Cash from Customer (₱):</label>
+        <input type="number" id="cash" min="0">
+
+        <label>Change (₱):</label>
+        <input type="text" id="change" class="readonly" readonly>
+
+        <label>Mode of Payment:</label>
+        <select id="payment" required>
+            <option value="">-- Select Payment Method --</option>
+            <option value="Cash on Delivery">Cash on Delivery</option>
+            <option value="GCash">GCash</option>
+			<option value="PayPal">PayPal</option>
+			<option value="PayMaya">PayMaya</option>
+        </select>
+
+        <label>Additional Notes (optional):</label>
+        <textarea id="notes" rows="3"></textarea>
+
+        <button type="submit">Place Order</button>
+
+    </form>
+</div>
+
+<div class="overlay" id="overlay"></div>
+
+<div class="receipt" id="receiptBox">
+    <h2>ORDER RECEIPT</h2>
+    <div id="receiptContent"></div>
+    <div class="close-btn" onclick="closeReceipt()">Close</div>
+</div>
+
+<script>
+    const qtyInputs = document.querySelectorAll(".qty");
+    const total = document.getElementById("total");
+    const cash = document.getElementById("cash");
+    const change = document.getElementById("change");
+
+    function updateTotal() {
+        let sum = 0;
+
+        qtyInputs.forEach(q => {
+            let price = parseFloat(q.getAttribute("data-price"));
+            let qty = parseInt(q.value);
+            if (qty > 0) sum += price * qty;
+        });
+
+        total.value = sum.toFixed(2);
+        updateChange();
+    }
+
+    function updateChange() {
+        let t = parseFloat(total.value);
+        let c = parseFloat(cash.value);
+        if (!isNaN(t) && !isNaN(c)) {
+            let result = c - t;
+            change.value = result >= 0 ? result.toFixed(2) : "Insufficient Cash";
+        }
+    }
+
+    qtyInputs.forEach(input => input.addEventListener("input", updateTotal));
+    cash.addEventListener("input", updateChange);
+
+    document.getElementById("orderForm").addEventListener("submit", function(e){
+        e.preventDefault();
+
+        let receiptHTML = `
+            <p><b>Name:</b> ${fullname.value}</p>
+            <p><b>Date:</b> ${date.value}</p>
+            <p><b>Time:</b> ${time.value}</p>
+            <hr>
+            <table>
+        `;
+
+        qtyInputs.forEach(q => {
+            let qty = parseInt(q.value);
+            if (qty > 0) {
+                let name = q.getAttribute("data-name");
+                let price = q.getAttribute("data-price");
+                let subtotal = qty * price;
+
+                receiptHTML += `
+                    <tr>
+                        <td>${name} (x${qty})</td>
+                        <td>₱${subtotal.toFixed(2)}</td>
+                    </tr>
+                `;
+            }
+        });
+
+        receiptHTML += `
+            </table>
+            <hr>
+            <p><b>Total:</b> ₱${total.value}</p>
+            <p><b>Cash:</b> ₱${cash.value}</p>
+            <p><b>Change:</b> ₱${change.value}</p>
+        `;
+
+        document.getElementById("receiptContent").innerHTML = receiptHTML;
+
+        document.getElementById("overlay").style.display = "block";
+        document.getElementById("receiptBox").style.display = "block";
+    });
+
+    function closeReceipt() {
+        document.getElementById("overlay").style.display = "none";
+        document.getElementById("receiptBox").style.display = "none";
+    }
+</script>
+
+</body>
+</html>
