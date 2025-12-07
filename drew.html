@@ -1,0 +1,474 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drew's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #000000;
+            padding: 15px 0;
+        }
+
+        .navbar .logo {
+            display: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav-links a:hover {
+            color: red;
+        }
+
+        /* ===== HOME SECTION ===== */
+        .hero {
+            height: 100vh;
+            width: 100%;
+            background-image: url('itpic.avif'); /* palitan ng gusto mong image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.45);
+            z-index: 1;
+        }
+
+        .profile-img {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            border: 4px solid white;
+            object-fit: cover;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 5px black;
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #000;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #FF0000;
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about-card {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(0,0,0,0.65);
+            padding: 30px;
+            border-radius: 15px;
+            color: white;
+            text-align: justify;
+            line-height: 2.0;
+        }
+
+        .about-card h2 {
+            text-align: center;
+            color: white;
+            text-shadow: 2px 2px 5px black;
+            margin-bottom: 20px;
+        }
+
+        .about-section {
+            background-image: url('fampic.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 60px 20px;
+            border-radius: 10px;
+        }
+
+        /* ===== PROJECTS SECTION ===== */
+       .projects {
+            background-image: url('activity.jpg'); 
+            background-size: cover;
+            background-position: center;
+            padding: 60px 20px;
+            border-radius: 10px;
+            text-align: center;
+       }
+
+        .project-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: scale(1.03);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .project-card h3 {
+            margin-top: 10px;
+            font-size: 20px;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .project-card p {
+            font-size: 15px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .project-card .btn {
+            background: #000;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 14px;
+
+        }
+		.hero-content { z-index: 2; text-align: center; color: white; 
+		}
+
+
+/* ===== MEMORIES SECTION ===== */
+#memories {
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 60px 20px;
+animation: fadeIn 0.5s ease-in-out;
+background-image: url('memories.avif'); /* ← add your image file */
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+}
+#memories h2 {
+text-align: center;
+font-size: 36px;
+margin-bottom: 30px;
+}
+.memories-gallery {
+max-width: 1000px;
+margin: 0 auto;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 20px;
+}
+.memory-item {
+background: white;
+padding: 15px;
+border-radius: 12px;
+box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.memory-images img {
+width: 100%;
+height: 180px;
+object-fit: cover;
+border-radius: 10px;
+margin-bottom: 10px;
+}
+
+        /* ===== CONTACT SECTION ===== */
+        .contact-bg {
+            background-image: url('contact.jpg'); /* palitan ng gusto mong image */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            padding: 80px 20px;
+            border-radius: 10px;
+        }
+
+        .contact-bg::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.55);
+            z-index: 1;
+        }
+
+        .contact-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            color: white;
+            text-align: center;
+        }
+
+        .contact-content h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 5px black;
+        }
+
+        .contact-content p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .contact-content ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+        }
+
+        .contact-content ul li {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        iframe {
+            border: 0;
+            width: 100%;
+            height: 400px;
+            border-radius: 10px;
+        }
+
+        /* Hide sections by default EXCEPT HOME */
+        #about, #projects, #contact {
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="#" onclick="showSection('home')">Home</a></li>
+                <li><a href="#" onclick="showSection('about')">About</a></li>
+                <li><a href="#" onclick="showSection('projects')">Projects</a></li>
+				<li><a href="#" onclick="showSection('memories')">Memories</a></li>
+                <li><a href="#" onclick="showSection('contact')">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HOME SECTION -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>DREW'S PORTFOLIO</h1>
+            <img src="prof.jpg" alt="Profile Picture" class="profile-img">
+            <p>I am Andrew John Aguilar, 19 years old, from BSIT-1F.</p>
+            <p>I enjoy drawing, and especially fishing because I am an angler. I also love playing chess.</p>
+            <p>Explore my work below and learn more about my website!</p>
+            <a href="#" onclick="showSection('projects')" class="btn">View My Work</a>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="about-section">
+        <div class="about-card">
+            <h2>About Me</h2>
+            <p>
+            I am Andrew John Aguilar, born on April 13, 2006 in Laste, Magsaysay, Occidental Mindoro. 
+			I come from a simple and hardworking family—my father, Andy T. Aguilar, is both a fisherman and a farmer, while my mother, Admerlyn Z. Aguilar, is a nutritionist. I have four siblings: my brothers Adrian Jay Z. Aguilar (an Army soldier), Andy Z. Aguilar, Zwing Lhian Z. Aguilar, and my sister Axel Jane Z. Aguilar.
+			I also have pets named Putol, Rocky, Owen, and Meyo. I studied in Laste Elementary School, Bagong Sikat Elementary School, San Jose National High School, Magsaysay National High School – Calawag Extension, and Magsaysay National High School. I first took BSEE at Occidental Mindoro State College – Labangan Campus before shifting to BSIT at OMSC San Jose Campus. 
+			I’m a quiet person, and my role model is my father. My hobbies include fishing, drawing, and playing chess, and fishing is also my sport as an angler. My favorite things include the color red, foods like tinola, sinigang, and chicken curry, the music groups Westlife and Backstreet Boys, and my favorite Westlife song is “I Wanna Grow Old With You.” 
+			I enjoy watching Harry Potter, and my favorite actor and actress are Daniel Radcliffe and Emma Watson. 
+			I love eating at karinderya, and one memorable place I visited was Tagaytay, where I competed in Electrical Installation and Maintenance. 
+			In school, I enjoy web designing, and my favorite subject is Web System, though I don’t like the stress from deadlines. For fun, I love to go fishing or draw. 
+			After college, I plan to work—possibly even abroad in Japan. One quote I live by is: “Be yourself.”
+            </p>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="projects">
+        <h2>My Projects</h2>
+        <div class="project-list">
+            <div class="project-card">
+                <img src="book.jpg" alt="Story Project">
+                <h3>Story in the Book</h3>
+                <p>A simple webpage that showcases my creative writing story.</p>
+                <a href="drewwstory.html" class="btn">View Story</a>
+            </div>
+
+            <div class="project-card">
+                <img src="curry.jpg" alt="Recipe Project">
+                <h3>Chicken Curry Recipe</h3>
+                <p>A simple recipe site showcasing delicious chicken curry with ingredients and instructions.</p>
+                <a href="drewcurry.html" class="btn">View Project</a>
+            </div>
+
+            <div class="project-card">
+                <img src="chooks.png" alt="Chook,s to Drew Project">
+                <h3>Ordered Form</h3>
+                <p>Website guides users to easily order Chook's to Drew online.</p>
+                <a href="Andreworderform.html" class="btn">View Project</a>
+            </div>
+			
+			 <div class="project-card">
+                <img src="php.webp" alt="Chook's to Drew Project">
+                <h3>PHP Ordered Form</h3>
+                <p>Website guides users to easily order Chook's to Drew online.</p>
+                <a href="andreworderxamp.php" class="btn">View Project</a>
+            </div>
+
+            <div class="project-card">
+                <img src="bike.jpg" alt="CSS">
+                <h3>Bicycle</h3>
+                <p>A project bicycle.</p>
+                <a href="BIKE_ACT4.html" class="btn">View Project</a>
+            </div>
+        </div>
+    </section>
+
+<!-- MEMORIES SECTION -->
+<section id="memories">
+<h2>My Memories</h2>
+<div class="memories-gallery">
+<div class="memory-item">
+<div class="memory-images">
+<img src="prof.jpg" alt="Memory 1">
+</div>
+<p>Graduation moments.</p>
+</div>
+
+
+<div class="memory-item">
+<div class="memory-images">
+<img src="webtime.jpg" alt="Memory 2">
+</div>
+<p>Web System moments.</p>
+</div>
+
+
+<div class="memory-item">
+<div class="memory-images">
+<img src="tech.jpg" alt="Memory 3">
+</div>
+<p>Technolympics moments.</p>
+</div>
+
+<div class="memory-item">
+<div class="memory-images">
+<img src="nc2.jpg" alt="Memory 3">
+</div>
+<p>Assessment moments.</p>
+</div>
+
+<div class="memory-item">
+<div class="memory-images">
+<img src="nstp.jpg" alt="Memory 3">
+</div>
+<p>NSTP moments.</p>
+</div>
+
+<div class="memory-item">
+<div class="memory-images">
+<img src="fishing.jpg" alt="Memory 3">
+</div>
+<p>Fishing moments.</p>
+</div>
+
+</div>
+</section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="contact">
+        <div class="contact-bg">
+            <div class="contact-content">
+                <h2>Contact Me</h2>
+                <p>If you want to reach out, feel free to contact me through any of the following:</p>
+                <ul>
+                    <li><b>Contact No:</b> 09384236447</li>
+                    <li><b>Email:</b> <a href="mailto:aguilarandrewjohnzurita@gmail.com">aguilarandrewjohnzurita@gmail.com</a></li>
+                    <li><b>Facebook:</b> <a href="https://facebook.com/" target="_blank">Andrew John Zurita Aguilar</a></li>
+                </ul>
+              
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Andrew John Z. Aguilar. All rights reserved.</p>
+    </footer>
+
+    <!-- SHOW / HIDE SCRIPT -->
+    <script>
+        function showSection(section) {
+            document.getElementById("home").style.display = "none";
+            document.getElementById("about").style.display = "none";
+            document.getElementById("projects").style.display = "none";
+			document.getElementById("memories").style.display = "none";
+            document.getElementById("contact").style.display = "none";
+
+            document.getElementById(section).style.display = "block";
+        }
+    </script>
+
+</body>
+</html>
